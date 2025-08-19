@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学题图片解答工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>数学题图片解答工具</h1>
+            <p>上传包含数学题的图片，获取答案和解题步骤</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📷</div>
+                <p>点击或拖拽图片到此处上传</p>
+                <input type="file" id="imageUpload" accept="image/*">
+                <button id="submitBtn">开始解答</button>
+                <div class="upload-tips">
+                    <p>提示：请上传清晰的数学题图片，效果更佳</p>
+                </div>
+            </div>
+
+            <div class="preview-area" id="previewArea">
+                <h3>预览图片</h3>
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+
+            <div class="result-area" id="resultArea">
+                <h3>解答结果</h3>
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>处理中，请稍候...</p>
+                </div>
+
+                <div class="problem" id="problem">
+                    <h4>识别到的题目：</h4>
+                    <p id="problemText">-</p>
+                </div>
+
+                <div class="answer" id="answer">
+                    <h4>答案：</h4>
+                    <p id="answerText">-</p>
+                </div>
+
+                <div class="steps" id="steps">
+                    <h4>解题步骤：</h4>
+                    <ul id="stepsList"></ul>
+                </div>
+
+                <div class="stats">
+                    <p>处理时间: <span id="processingTime">-</span></p>
+                    <p> tokens使用: <span id="tokensUsed">-</span></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 数学题图片解答工具 | 基于SiliconFlow API</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
