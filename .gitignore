@@ -1,8 +1,21 @@
-
-# Log file
+# 基础忽略
 *.log
-
-# PyCharm
 .idea
+.env
+__pycache__/
+*.pyc
+*.pyo
 
+# 虚拟环境
+venv/
+env/
+.env.local
 
+# 构建产物
+dist/
+build/
+*.zip
+
+# 运行时文件
+runtime/
+tmp/

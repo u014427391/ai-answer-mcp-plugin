@@ -1,0 +1,29 @@
+{
+  "name": "math-problem-solver",
+  "version": "1.0.0",
+  "description": "数学题图片识别与解答工具",
+  "author": "",
+  "email": "",
+  "main": "backend/mcp_entry.py",
+  "dependencies": {
+    "python": "3.8.3"
+  },
+  "entry": {
+    "type": "http",
+    "port": 8000,
+    "path": "/"
+  },
+  "config": [
+    {
+      "name": "SILICONFLOW_API_KEY",
+      "type": "string",
+      "required": true,
+      "description": "SiliconFlow API密钥"
+    }
+  ],
+  "permissions": [
+    "file:read",
+    "network:outbound"
+  ],
+  "categories": ["education", "ai"]
+}

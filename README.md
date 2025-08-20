@@ -8,7 +8,7 @@
 - 自动解答并返回详细解题步骤
 - 简洁直观的用户界面
 - 基于Flask的轻量后端服务
-- 图片预处理优化，提升识别准确率
+- 支持部署到蓝耕云MCP平台
 
 ## 技术架构
 
@@ -16,39 +16,43 @@
 - 前端：HTML + CSS + JavaScript
 - 图像识别：PaddleOCR（支持中英文和数学公式）
 - 解题核心：SiliconFlow API
+- 插件框架：FastMCP（支持MCP平台部署）
 
 ## 快速开始
 
-### 前置条件
+### 本地运行
 
-- Python 3.8.3（推荐版本，已验证兼容性）
-- 一个SiliconFlow API密钥（可在[SiliconFlow官网](https://siliconflow.cn/)申请）
+#### 前置条件
+- Python 3.8.3
+- SiliconFlow API密钥
 
-在项目根目录创建.env文件，添加以下内容：
-```env
-SILICONFLOW_API_KEY=你的API密钥
+#### 安装步骤
+1. 克隆仓库并安装依赖（同上，略）
+
+### 部署到蓝耕云MCP平台
+
+#### 前置条件
+- 蓝耕云平台账号
+- 已创建MCP应用空间
+
+#### 部署步骤
+1. 确保项目根目录包含`mcp.json`配置文件
+2. 打包项目为ZIP文件（不含虚拟环境）
+3. 登录蓝耕云平台，进入MCP插件库
+4. 点击"上传插件"，选择打包的ZIP文件
+5. 配置插件参数（主要是SILICONFLOW_API_KEY）
+6. 部署插件并启动服务
+
+## 项目结构
+
 ```
-
-### 安装步骤
-
-1. 克隆仓库
-```bash
-git clone https://github.com/yourusername/ai-answer-mcp-plugin.git
-cd ai-answer-mcp-plugin
+ai-answer-mcp-plugin/
+├── backend/ # 后端服务代码
+│ ├── app.py # 主程序入口
+│ ├── mcp_entry.py # MCP 插件入口
+│ └── requirements.txt # 依赖清单
+├── frontend/ # 前端页面
+├── mcp.json # MCP 插件配置
+├── .env # 本地环境变量
+└── README.md # 项目说明
 ```
-
-2. 进入后端目录
-cd backend
-
-3. 安装Python依赖
-pip install -r requirements.txt
-
-### 启动项目
-启动服务
-```bash
-# 在backend目录下
-python app.py
-```
-
-访问工具
-打开浏览器，访问 http://localhost:8000/frontend 即可使用
